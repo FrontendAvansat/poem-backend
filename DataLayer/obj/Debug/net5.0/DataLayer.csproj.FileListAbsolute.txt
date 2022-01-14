@@ -1,0 +1,12 @@
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.csproj.AssemblyReference.cache
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.AssemblyInfoInputs.cache
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.AssemblyInfo.cs
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\bin\Debug\net5.0\DataLayer.deps.json
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\bin\Debug\net5.0\DataLayer.dll
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\bin\Debug\net5.0\ref\DataLayer.dll
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\bin\Debug\net5.0\DataLayer.pdb
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.dll
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\ref\DataLayer.dll
+C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\PoemsBackend\DataLayer\obj\Debug\net5.0\DataLayer.pdb
