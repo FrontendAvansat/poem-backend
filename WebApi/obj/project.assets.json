@@ -638,15 +638,6 @@
           "lib/netcoreapp2.1/Microsoft.Identity.Client.dll": {}
         }
       },
-      "Microsoft.IdentityModel/7.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net35/microsoft.identitymodel.dll": {}
-        },
-        "runtime": {
-          "lib/net35/microsoft.identitymodel.dll": {}
-        }
-      },
       "Microsoft.IdentityModel.JsonWebTokens/6.7.1": {
         "type": "package",
         "dependencies": {
@@ -1854,36 +1845,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "DataLayer/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13",
-          "Microsoft.Extensions.Identity.Stores": "5.0.13",
-          "Microsoft.IdentityModel": "7.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataLayer.dll": {}
-        }
-      },
-      "Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "DataLayer": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Services.dll": {}
-        }
       }
     }
   },
@@ -2765,18 +2726,6 @@
         "ref/uap10.0/Microsoft.Identity.Client.xml",
         "ref/xamarinmac20/Microsoft.Identity.Client.dll",
         "ref/xamarinmac20/Microsoft.Identity.Client.xml"
-      ]
-    },
-    "Microsoft.IdentityModel/7.0.0": {
-      "sha512": "55LP0/gF3OAGhPNw/QxJs9q72xyS8rJ4ndZJC+GMSEjARh4hPmGVet2Oa9B8p8KKl3g8u3e+mh6WoBoUa0AiAA==",
-      "type": "package",
-      "path": "microsoft.identitymodel/7.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/microsoft.identitymodel.dll",
-        "microsoft.identitymodel.7.0.0.nupkg.sha512",
-        "microsoft.identitymodel.nuspec"
       ]
     },
     "Microsoft.IdentityModel.JsonWebTokens/6.7.1": {
@@ -6433,21 +6382,12 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "DataLayer/1.0.0": {
-      "type": "project",
-      "path": "../DataLayer/DataLayer.csproj",
-      "msbuildProject": "../DataLayer/DataLayer.csproj"
-    },
-    "Services/1.0.0": {
-      "type": "project",
-      "path": "../Services/Services.csproj",
-      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "DataLayer >= 1.0.0",
+      "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj",
+      "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.13",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.13",
@@ -6455,7 +6395,6 @@
       "Microsoft.EntityFrameworkCore >= 5.0.13",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.13",
       "Newtonsoft.Json >= 13.0.1",
-      "Services >= 1.0.0",
       "Swashbuckle.AspNetCore.Swagger >= 6.2.3",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.2.3",
       "Swashbuckle.AspNetCore.SwaggerUI >= 6.2.3"
@@ -6468,11 +6407,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\WebApi.csproj",
+      "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\CST00072\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\obj\\",
+      "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6494,11 +6433,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj"
+            "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj"
             },
-            "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj": {
-              "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj"
+            "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj"
             }
           }
         }
@@ -6584,11 +6523,19 @@
   },
   "logs": [
     {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.IdentityModel 7.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.IdentityModel",
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "libraryId": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "libraryId": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj",
       "targetGraphs": [
         "net5.0"
       ]

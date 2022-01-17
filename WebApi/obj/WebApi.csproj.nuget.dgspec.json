@@ -1,98 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\WebApi.csproj": {}
+    "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj",
-        "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\CST00072\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\CST00072\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Identity": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.13, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.13, )"
-            },
-            "Microsoft.Extensions.Identity.Stores": {
-              "target": "Package",
-              "version": "[5.0.13, )"
-            },
-            "Microsoft.IdentityModel": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\WebApi.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\WebApi.csproj",
+        "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\CST00072\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\PoemsBackend\\obj\\",
+        "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -114,11 +33,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj"
               },
-              "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj"
+              "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj"
               }
             }
           }
@@ -194,69 +113,6 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj",
-        "projectName": "Services",
-        "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\CST00072\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\CST00072\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

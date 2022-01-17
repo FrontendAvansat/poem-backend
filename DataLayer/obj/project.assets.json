@@ -6546,11 +6546,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\DataLayer.csproj",
+      "projectPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\DataLayer.csproj",
       "packagesPath": "C:\\Users\\CST00072\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\DataLayer\\obj\\",
+      "outputPath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

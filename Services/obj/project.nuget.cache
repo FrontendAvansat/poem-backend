@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rkU/cHRA71Nenrh+DwDqCgSaU6o7nbWjiUqAdUntXKoXkmbZ/XK8wCKhBzfE32J7odxf1tXjMT63G8T1K9wxlw==",
+  "dgSpecHash": "7GQEx1Fr8BClbQjg/kp1ftmYY1lN3zVoYISBC3pUlIvbKY8Jt/+ReIGfBT2/W9FhNLCHScvdTZP0CnT9lpGmgw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\PoemsBackend\\Services\\Services.csproj",
+  "projectFilePath": "C:\\Users\\CST00072\\Mari\\Facultate\\ReactApp\\ReactApp\\poem-backend\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CST00072\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\CST00072\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
