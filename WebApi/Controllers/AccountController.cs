@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
+using Services.Dtos;
+using Services;
 
 namespace WebApi.Controllers.Auth
 {
@@ -10,45 +12,31 @@ namespace WebApi.Controllers.Auth
     [ApiController]
     public class AccountController : WebApiController
     {
-        //ivate readonly IAuthenticationService _authenticationService;
+        private readonly IAuthentificationService _authentificationService;
 
-        public AccountController(IHostEnvironment hostEnvironment /*IAuthenticationService authenticationService*/) : base(hostEnvironment)
+        public AccountController(IHostEnvironment hostEnvironment, IAuthentificationService authentificationService) : base(hostEnvironment)
         {
-           //authenticationService = authenticationService;
+           _authentificationService = authentificationService;
         }
 
         [HttpPost]
         [Route("account/login")]
-        public async Task<IActionResult> Login(/*[FromBody] LoginRequest loginRequest*/)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            return Ok(true);
-            //var login = await _authenticationService.LoginAsync(loginRequest, PotentialCustomer);
-            //return Ok(login);
+            var login = await _authentificationService.LoginAsync(loginRequest);
+            return Ok(login);
         }
 
-        //[HttpPost]
-        //[Route("account/validate-email")]
-        //public async Task<IActionResult> ValidateEmail([FromBody] ValidationRequest validationRequest)
-        //{
-        //    await _authenticationService.ValidateEmailAsync(validationRequest, Language);
-        //    return Ok();
-        //}
 
-        //[HttpPost]
-        //[Route("account/register-producer")]
-        //public async Task<IActionResult> RegisterProducer([FromBody] RegisterRequest registerRequest)
-        //{
-        //    await _authenticationService.RegisterProducerAsync(registerRequest, Language, HttpContext.Request);
-        //    return Ok();
-        //}
 
-        //[HttpPost]
-        //[Route("account/register-customer")]
-        //public async Task<IActionResult> RegisterCustomer([FromBody] RegisterRequestCustomer registerRequest)
-        //{
-        //     _ = await _authenticationService.RegisterCustomerAsync(registerRequest, Language, HttpContext.Request);
-        //    return Ok();
-        //}
+
+        [HttpPost]
+        [Route("account/register")]
+        public async Task<IActionResult> RegisterCustomer([FromBody] RegisterDto registerRequest)
+        {
+            _ = await _authentificationService.RegisterAuthorAsync(registerRequest);
+            return Ok();
+        }
 
         //[HttpPost]
         //[Route("account/refresh-token")]

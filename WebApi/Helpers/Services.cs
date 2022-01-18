@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Services.Authors;
 using DataLayer;
 using DataLayer.Repositories;
+using Services;
 
 namespace WebApi.Helpers
 {
@@ -12,6 +13,8 @@ namespace WebApi.Helpers
         public static void AddServices(this IServiceCollection services)
         { 
             services.AddScoped<IAuthorService, AuthorService>();
+            services.AddScoped<IAuthentificationService, AuthentificationService>();
+            services.AddScoped<IUserAuthentificationHelper, UserAuthentificationHelper>();
         }
 
 
@@ -21,6 +24,8 @@ namespace WebApi.Helpers
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IAppUserRepository, AppUserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITokenRepository, TokenRepository>();
+
 
         }
     }

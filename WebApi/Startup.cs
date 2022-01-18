@@ -9,16 +9,16 @@ using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
 using System.Text;
 using File = System.IO.File;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using WebApi.Helpers;
 using DataLayer;
 using DataLayer.Entities;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
-using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Newtonsoft.Json;
 
 namespace WebApi
 {

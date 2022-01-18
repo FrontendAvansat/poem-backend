@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>PoemsBackend</ActiveDebugProfile>
+    <ActiveDebugProfile>WebApi</ActiveDebugProfile>
   </PropertyGroup>
 </Project>

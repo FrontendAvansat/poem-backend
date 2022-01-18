@@ -14,7 +14,7 @@ namespace Services
         UserInformationDto GetUserInformationByTypeAsync(AppUser user);
         void VerifyUser(AppUser user);
         UserInformationDto UserSignedInAsync(AppUser user, LoginRequest loginRequest, Token accessToken, Token refreshToken);
-        Task<Author> CreateUserAndAuthorAsync(RegisterDto registerRequest, string language);
+        Task<Author> CreateUserAndAuthorAsync(RegisterDto registerRequest);
     }
     public class UserAuthentificationHelper : IUserAuthentificationHelper
     {
@@ -40,7 +40,7 @@ namespace Services
         public UserInformationDto GetUserInformationByTypeAsync(AppUser user)
         {
             var userInfo = _appUserRepository.GetById(user.Id);
-            if(userInfo != null)
+            if (userInfo != null)
             {
                 var result = new UserInformationDto
                 {
@@ -52,8 +52,8 @@ namespace Services
                 return result;
 
             }
-                
-          
+
+
             throw new BadRequestException("User_Not_Found");
         }
 
@@ -83,22 +83,21 @@ namespace Services
             return login;
         }
 
-        public async Task<Author> CreateUserAndAuthorAsync(RegisterDto registerRequest, string language)
+        public async Task<Author> CreateUserAndAuthorAsync(RegisterDto registerRequest)
         {
-            var user = await CreateUserAsync(registerRequest, AppUserTypes.User, language);
+            var user = await CreateUserAsync(registerRequest, AppUserTypes.User);
             var newAuthor = new Author
             {
                 User = user,
                 UserId = user.Id,
             };
             _unitOfWork.Authors.Insert(newAuthor);
-            await AddClaimsToUserAsync(user, "userId", newAuthor.Id);
             return newAuthor;
         }
 
-        private async Task<AppUser> CreateUserAsync(RegisterDto request, AppUserTypes type, string language)
+        private async Task<AppUser> CreateUserAsync(RegisterDto request, AppUserTypes type)
         {
-           
+
             var oldUser = await _appUserRepository.FindUserByEmailAsync(request.Email, asNoTracking: true);
             if (oldUser != null) throw new BadRequestException("UserAlreadyExists");
 
@@ -112,12 +111,20 @@ namespace Services
                 ValidationToken = Guid.NewGuid().ToString()
             };
 
+
+
             var result = await _appUserRepository.CreateUserAsync(user, request.Password);
             if (!result.Succeeded) throw new Exception("UserNotCreated");
-
-            var roleResult = await _appUserRepository.AddUserToRoleAsync(user, type.ToString());
-            if (roleResult == null) throw new Exception("RoleNotAdded");
-
+            else
+            {
+                var author = new Author
+                {
+                    UserId = user.Id,
+                    User = user
+                };
+                _unitOfWork.Authors.Insert(author);
+                await _unitOfWork.SaveChangesAsync();
+            }
             return user;
         }
     }

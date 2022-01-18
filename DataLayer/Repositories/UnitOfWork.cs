@@ -7,7 +7,8 @@ namespace DataLayer.Repositories
     {
         IAppUserRepository Users { get; }
         IAuthorRepository Authors { get; }
-       
+        ITokenRepository Tokens { get; }
+
 
         Task<bool> SaveChangesAsync();
         public void LogDbTrack();
@@ -19,15 +20,17 @@ namespace DataLayer.Repositories
 
         public IAppUserRepository Users { get; }
         public IAuthorRepository Authors { get; }
-      
+        public ITokenRepository Tokens { get; }
+
 
         public UnitOfWork(ApplicationDbContext applicationDbContext, 
-            IAppUserRepository userRepository, IAuthorRepository authorRepository)
+            IAppUserRepository userRepository, IAuthorRepository authorRepository, ITokenRepository tokenRepository)
         {
             _applicationDbContext = applicationDbContext;
           
             Users = userRepository;
             Authors = authorRepository;
+            Tokens = tokenRepository;
            
         }
 

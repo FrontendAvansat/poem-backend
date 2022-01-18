@@ -1,12 +1,13 @@
 ﻿using DataLayer;
 using DataLayer.Entities;
 using DataLayer.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Services.Dtos;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +16,30 @@ namespace Services
 {
     public interface IAuthentificationService
     {
-
+        Task<Token> GenerateJwtToken(AppUser user);
+        Token GenerateRefreshToken(AppUser user);
+        Task<UserInformationDto> LoginAsync(LoginRequest loginRequest);
+        Task<TokenResponse> RefreshTokenAsync(TokenRequest request);
+        Task<Author> RegisterAuthorAsync(RegisterDto registerRequest);
     }
     public class AuthentificationService : IAuthentificationService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _configuration;
-        public AuthenticationService(IUnitOfWork unitOfWork, IConfiguration configuration)
+        private readonly IAppUserRepository _appUserRepository;
+        private readonly IUserAuthentificationHelper _userAuthentificationHelper;
+        public AuthentificationService(IUnitOfWork unitOfWork, IConfiguration configuration, IAppUserRepository appUserRepository, IUserAuthentificationHelper userAuthentificationHelper)
         {
             _unitOfWork = unitOfWork;
             _configuration = configuration;
+            _appUserRepository = appUserRepository;
+            _userAuthentificationHelper = userAuthentificationHelper;
+        }
+
+        public async Task<Author> RegisterAuthorAsync(RegisterDto registerRequest)
+        {
+            var author = await _userAuthentificationHelper.CreateUserAndAuthorAsync(registerRequest);
+            return author;
         }
         public async Task<Token> GenerateJwtToken(AppUser user)
         {
@@ -32,26 +47,10 @@ namespace Services
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:SecurityKey"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var claims = await _appUserRepository.GetClaimsAsync(user);
-            var roles = await _appUserRepository.GetUserRolesAsync(user);
-            foreach (var role in roles)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role));
-
-                var r = await _roleRepository.GetRoleByNameAsync(role);
-                var roleClaims = await _roleRepository.GetClaimsByRoleAsync(r);
-
-                foreach (var roleClaim in roleClaims)
-                {
-                    claims.Add(roleClaim);
-                }
-            }
-
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Issuer = _configuration["JWT:Issuer"],
                 Audience = _configuration["JWT:Audience"],
-                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddYears(1),
                 SigningCredentials = credentials
             };
@@ -88,12 +87,12 @@ namespace Services
             };
         }
 
-        public async Task<LoginResponse> LoginAsync(LoginRequest loginRequest)
+        public async Task<UserInformationDto> LoginAsync(LoginRequest loginRequest)
         {
-            var user = await _appUserRepository.FindUserByEmailAsync(loginRequest.Username, asNoTracking: false);
+            var user = await _appUserRepository.FindUserByEmailAsync(loginRequest.Email, asNoTracking: false);
             _userAuthentificationHelper.VerifyUser(user);
 
-            var result = await _appUserRepository.SignInAsync(loginRequest.Username, loginRequest.Password);
+            var result = await _appUserRepository.SignInAsync(loginRequest.Email, loginRequest.Password);
             if (!result.Succeeded) throw new BadRequestException("Invalid_login");
 
             var accessToken = await GenerateJwtToken(user);
@@ -101,14 +100,14 @@ namespace Services
             var refreshToken = GenerateRefreshToken(user);
             _unitOfWork.Tokens.Insert(refreshToken);
             await _unitOfWork.SaveChangesAsync();
-            return await _userAuthentificationHelper.UserSignedInAsync(user, loginRequest, accessToken, refreshToken);
+            return  _userAuthentificationHelper.UserSignedInAsync(user, loginRequest, accessToken, refreshToken);
         }
 
         public async Task<TokenResponse> RefreshTokenAsync(TokenRequest request)
         {
             var refreshToken = _unitOfWork.Tokens.CacheGetRefreshTokenByTokenString(request.RefreshToken);
             if (refreshToken.ExpireDate < DateTime.UtcNow) throw
-                new BadRequestException(ErrorService.ExpiredToken);
+                new BadRequestException("ExpiredToken");
 
             refreshToken.IsRevoked = true;
             var accessToken = _unitOfWork.Tokens.CacheGetAccessTokenByTokenString(request.AccessToken);

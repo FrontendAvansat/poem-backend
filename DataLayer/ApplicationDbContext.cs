@@ -10,6 +10,7 @@ namespace DataLayer
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<Poem> Poems { get; set; }
+        public DbSet<Token> Tokens { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
