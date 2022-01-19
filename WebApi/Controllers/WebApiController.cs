@@ -38,22 +38,20 @@ namespace WebApi.Controllers
 
         private void GetUserIdAsync(ActionExecutingContext context)
         {
-            var userId = User
-                .Claims
-                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?
-                .Value;
-            Guid.TryParse(userId, out UserId);
-            if (UserId == default) return;
-
-            context.HttpContext.Items["UserId"] = userId;
-            context.HttpContext.Items["UserEmail"] = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
-            if (User.IsInRole("Author"))
+            var authorToken = context.HttpContext.Request.Headers["Access-Token"];
+            if(!string.IsNullOrEmpty(authorToken))
             {
                 var authorService = HttpContext.RequestServices.GetService<IAuthorService>();
-                Author = authorService.GetByUserId(UserId);
+                Author = authorService.GetAuthorByAccessToken(authorToken);
+                if (Author!=null)
+                    UserId = Author.UserId;
+                context.HttpContext.Items["UserId"] = UserId;
+                context.HttpContext.Items["UserEmail"] = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+
                 if (Author == null)
                     context.Result = Unauthorized();
             }
+            
         }
 
         private void CheckModel(ActionExecutingContext context)

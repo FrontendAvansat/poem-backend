@@ -8,6 +8,7 @@ namespace DataLayer.Repositories
         IAppUserRepository Users { get; }
         IAuthorRepository Authors { get; }
         ITokenRepository Tokens { get; }
+        IPoemRepository Poems { get; }
 
 
         Task<bool> SaveChangesAsync();
@@ -21,16 +22,18 @@ namespace DataLayer.Repositories
         public IAppUserRepository Users { get; }
         public IAuthorRepository Authors { get; }
         public ITokenRepository Tokens { get; }
+        public IPoemRepository Poems { get; }
 
 
         public UnitOfWork(ApplicationDbContext applicationDbContext, 
-            IAppUserRepository userRepository, IAuthorRepository authorRepository, ITokenRepository tokenRepository)
+            IAppUserRepository userRepository, IAuthorRepository authorRepository, ITokenRepository tokenRepository, IPoemRepository poemRepository)
         {
             _applicationDbContext = applicationDbContext;
           
             Users = userRepository;
             Authors = authorRepository;
             Tokens = tokenRepository;
+            Poems = poemRepository;
            
         }
 
@@ -48,7 +51,6 @@ namespace DataLayer.Repositories
             {
                 var save = await _applicationDbContext.SaveChangesAsync();
                 if (save <= 0) return false;
-                save = _applicationDbContext.SaveChanges();
                 return (save >= 0);
             }
             catch (Exception e)

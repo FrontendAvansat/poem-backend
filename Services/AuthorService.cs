@@ -10,6 +10,7 @@ namespace Services.Authors
     {
         Task<Author> GetAuthorByIdAsync(Guid id);
         Author GetByUserId(Guid userId);
+        Author GetAuthorByAccessToken(string token);
     }
 
     public class AuthorService : IAuthorService
@@ -29,6 +30,11 @@ namespace Services.Authors
         public Author GetByUserId(Guid userId)
         {
             return _unitOfWork.Authors.GetByUserId(userId);
+        }
+
+        public Author GetAuthorByAccessToken(string token)
+        {
+            return _unitOfWork.Authors.GetAuthorByToken(token);
         }
 
     }

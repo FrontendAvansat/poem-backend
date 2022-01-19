@@ -21,6 +21,7 @@ namespace Services
         Task<UserInformationDto> LoginAsync(LoginRequest loginRequest);
         Task<TokenResponse> RefreshTokenAsync(TokenRequest request);
         Task<Author> RegisterAuthorAsync(RegisterDto registerRequest);
+        UserInformationDto GetUserInformation(Guid id);
     }
     public class AuthentificationService : IAuthentificationService
     {
@@ -128,6 +129,15 @@ namespace Services
             };
 
             return response;
+        }
+        public UserInformationDto GetUserInformation(Guid id)
+        {
+            var user = _appUserRepository.GetById(id, asNoTracking: true);
+            if (user == null)
+            {
+                throw new BadRequestException("NoUserFound");
+            }
+            return  _userAuthentificationHelper.GetUserInformationByTypeAsync(user);
         }
     }
 }

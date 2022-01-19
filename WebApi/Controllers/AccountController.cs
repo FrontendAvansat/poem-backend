@@ -38,29 +38,21 @@ namespace WebApi.Controllers.Auth
             return Ok();
         }
 
-        //[HttpPost]
-        //[Route("account/refresh-token")]
-        //public async Task<IActionResult> RefreshToken([FromBody] TokenRequest tokenRequest)
-        //{
-        //    var refreshToken = await _authenticationService.RefreshTokenAsync(tokenRequest);
-        //    return Ok(refreshToken);
-        //}
+        [HttpPost]
+        [Route("account/refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenRequest tokenRequest)
+        {
+            var refreshToken = await _authentificationService.RefreshTokenAsync(tokenRequest);
+            return Ok(refreshToken);
+        }
 
-        //[HttpGet]
-        //[Authorize]
-        //[Route("account/who-am-i")]
-        //public async Task<ActionResult<UserInformationDto>> WhoAmI([FromQuery] Guid? deliverySlotId)
-        //{
-        //    var user = await _authenticationService.GetUserInformationAsync(UserId, deliverySlotId);
-        //    return user;
-        //}
-
-        //[HttpPost]
-        //[Route("account/register-local-facilitator")]
-        //public async Task<IActionResult> RegisterLocalFacilitator([FromBody] RegisterRequest registerRequest)
-        //{
-        //    await _authenticationService.RegisterLocalFacilitatorAsync(registerRequest, Language, HttpContext.Request);
-        //    return Ok();
-        //}
+        [HttpGet]
+        [Authorize]
+        [Route("account/who-am-i")]
+        public ActionResult<UserInformationDto> WhoAmI()
+        {
+            var user =  _authentificationService.GetUserInformation(UserId);
+            return user;
+        }
     }
 }

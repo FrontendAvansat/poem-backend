@@ -11,6 +11,7 @@ namespace DataLayer.Repositories
     public interface IAuthorRepository : IRepositoryBase<Author>
     {
         Author GetByUserId(Guid userId);
+        Author GetAuthorByToken(string token);
     }
     public class AuthorRepository : RepositoryBase<Author>, IAuthorRepository
     {
@@ -24,6 +25,14 @@ namespace DataLayer.Repositories
         public Author GetByUserId(Guid userId)
         {
             return DbGetRecords().Include(a => a.User).FirstOrDefault(a => a.UserId == userId);
+        }
+
+        public Author GetAuthorByToken(string token)
+        {
+            return DbGetRecords()
+                .Include(a => a.User)
+                    .ThenInclude(u => u.Tokens)
+                .FirstOrDefault(a => a.User.Tokens.Any(t => t.Type == TokenTypes.AccessToken && t.TokenString == token));
         }
     }
 }

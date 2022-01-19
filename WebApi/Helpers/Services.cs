@@ -15,6 +15,8 @@ namespace WebApi.Helpers
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IAuthentificationService, AuthentificationService>();
             services.AddScoped<IUserAuthentificationHelper, UserAuthentificationHelper>();
+            services.AddScoped<IPoemService, PoemService>();
+
         }
 
 
@@ -25,6 +27,7 @@ namespace WebApi.Helpers
             services.AddScoped<IAppUserRepository, AppUserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenRepository, TokenRepository>();
+            services.AddScoped<IPoemRepository, PoemRepository>();
 
 
         }
