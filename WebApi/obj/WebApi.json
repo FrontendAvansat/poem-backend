@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Poems",
-    "version": "1.0 build 19.935 on date 19/01 03:35"
+    "version": "1.0 build 27.743 on date 27/01 12:23"
   },
   "paths": {
     "/api/auth-service/account/login": {

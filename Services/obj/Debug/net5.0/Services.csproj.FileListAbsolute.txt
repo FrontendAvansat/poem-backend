@@ -30,4 +30,3 @@ C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\poem-backend\Services\bin\Deb
 C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\poem-backend\Services\bin\Debug\net5.0\Services.runtimeconfig.json
 C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\poem-backend\Services\bin\Debug\net5.0\Services.runtimeconfig.dev.json
 C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\poem-backend\Services\obj\Debug\net5.0\Services.genruntimeconfig.cache
-C:\Users\CST00072\Mari\Facultate\ReactApp\ReactApp\poem-backend\Services\obj\Debug\net5.0\Services.csproj.CopyComplete

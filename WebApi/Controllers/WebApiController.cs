@@ -38,7 +38,7 @@ namespace WebApi.Controllers
 
         private void GetUserIdAsync(ActionExecutingContext context)
         {
-            var authorToken = context.HttpContext.Request.Headers["Access-Token"];
+            var authorToken = context.HttpContext.Request.Headers["Authorization"];
             if(!string.IsNullOrEmpty(authorToken))
             {
                 var authorService = HttpContext.RequestServices.GetService<IAuthorService>();
